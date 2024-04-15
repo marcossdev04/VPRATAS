@@ -1,7 +1,7 @@
 import { Footer } from "./components/Footer";
 import { Header } from "./components/Header";
 import { Infos } from "./components/Infos";
-import { Products } from "./components/Products";
+import { Highlights } from "./components/Highlights";
 import { Selections } from "./components/Selections";
 
 export default function Home() {
@@ -10,7 +10,9 @@ export default function Home() {
       <Header />
       <Infos />
       <Selections />
-      <Products />
+      <div className="flex flex-col gap-3">
+        <Highlights />
+      </div>
       <Footer />
     </div>
   )

@@ -8,6 +8,7 @@ import { IoMdCart } from "react-icons/io";
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { AppBar, Box, Toolbar } from "@mui/material";
+import Link from "next/link";
 
 
 export function Header() {
@@ -52,14 +53,14 @@ export function Header() {
         },
     }));
     return (
-        <div className=" flex bg-black w-full border-b">
-            <div className="flex justify-center items-center w-1/3">
+        <div className=" flex bg-black w-full border-b justify-between px-10 ">
+            <div className="flex justify-center items-center mobile:hidden w-1/3">
                 <Box sx={{ flexGrow: 1 }}>
                     <AppBar position="static">
                         <Toolbar className="bg-black">
                             <Search>
                                 <SearchIconWrapper>
-                                    <FaSearch /> {/* Adicionado o ícone de pesquisa */}
+                                    <FaSearch />
                                 </SearchIconWrapper>
                                 <StyledInputBase
                                     placeholder="Pesquisar"
@@ -70,20 +71,19 @@ export function Header() {
                     </AppBar>
                 </Box>
             </div>
-            <div className="flex pt-2 w-1/3 justify-center">
-                <Image src={logoImage} alt="logo pratas 925" width={70} />
+            <div className="desktop:hidden tablet:hidden laptop:hidden">
+                /
             </div>
-
-            <div className="items-center mr-14 flex justify-end w-1/3">
+            <div className="flex pt-2 justify-center mobile:w-1/3 w-1/3">
+                <Link href={'/'}>
+                    <Image src={logoImage} alt="logo pratas 925" width={70} />
+                </Link>
+            </div>
+            <div className="items-center mobile:mr-3 flex justify-end w-1/3">
                 <ul className="flex gap-7 items-center">
-                    <div className="w-[50%]">
-                        <TextField
-                            id="standard-basic"
-                            label="Pesquisar"
-                            variant="standard"
-                        />
+                    <div className="mobile:hidden">
+                        <li><FaRegUser size={22} /></li>
                     </div>
-                    <li><FaRegUser size={22} /></li>
                     <div className="flex gap-2 items-center">
                         <li><IoMdCart size={27} /></li>
                         <span className="font-medium">R$00.00</span>
