@@ -17,15 +17,23 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { Header } from '../components/Header'
-import { Footer } from '../components/Footer'
-import { AccordionDemo } from '../components/Accordion'
+import { Header } from '../../components/Header'
+import { Footer } from '../../components/Footer'
+import { AccordionDemo } from '../../components/Accordion'
+import { prod } from '@/lib/utils'
 
 
-export default function Product() {
+
+export default function Product({ params }: any) {
     const images = [ImageTest01, Imagetest02, ImageTest03]
     const [contable, setContable] = useState(1)
     const [currentSlide, setCurrentSlide] = useState(0)
+
+    const product = prod.filter((produto) => produto.id === params.productId)[0]
+    const percentValue = product?.price * product?.sale / 100
+    const pastValue = product?.price! + percentValue
+    const portion = product?.price! / 5
+
 
     const incrementarContable = () => {
         setContable(contable + 1);
@@ -97,7 +105,7 @@ export default function Product() {
                 <div className='w-1/2'>
                     <div className='flex flex-col ml-20 gap-3'>
                         <div className='flex flex-col'>
-                            <span>Corrente Veneziana 3mm</span>
+                            <span>{product?.name}</span>
                         </div>
                         <div>
                             <Select>
@@ -113,13 +121,13 @@ export default function Product() {
                         <div className='flex flex-col'>
                             <div className='flex gap-2'>
                                 <div>
-                                    <span className='text-xl'>R$199,90</span>
+                                    <span className='text-xl'>R${product?.price.toFixed(2)}</span>
                                 </div>
                                 <div className='flex flex-col-reverse'>
-                                    <span className='text-sm text-zinc-400 line-through'>R$260,90</span>
+                                    <span className='text-sm text-zinc-400 line-through'>R${pastValue.toFixed(2)}</span>
                                 </div>
                             </div>
-                            <span className='text-xs'>10x de R$19,90</span>
+                            <span className='text-xs'>5x de R${portion.toFixed(2)}</span>
                         </div>
                         <button className='border w-fit py-3 px-10 text-green-500'>
                             Comprar agora
