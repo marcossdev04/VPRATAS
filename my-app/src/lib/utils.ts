@@ -2,17 +2,31 @@ import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
 
 import veneziana from '@/app/assets/veneziana 2mm .jpeg'
-import baiana from '@/app/assets/baiano.jpeg'
-import grumet from '@/app/assets/grumet.jpeg'
-import cartier from '@/app/assets/cartier.jpeg'
-import tresPorUm from '@/app/assets/3por1.jpeg'
-import piastrine from '@/app/assets/piastrine.jpg'
-import pPiastrine from '@/app/assets/pulPiastrine.jpeg'
-import pGrumet from '@/app/assets/pulGrumet.jpg'
-import pCartiet from '@/app/assets/pulCartier.jpg'
-import pBaiano from '@/app/assets/pulBaiano.jpg'
+import veneziana2 from '@/app/assets/veneziana (2).jpeg'
 import pVeneziana from '@/app/assets/pulVeneziana.jpg'
+
+import baiana from '@/app/assets/baiano.jpeg'
+import baiana2 from '@/app/assets/baiano(2).jpeg'
+import pBaiano from '@/app/assets/pulBaiano.jpg'
+
+import grumet from '@/app/assets/grumet.jpeg'
+import grumet2 from '@/app/assets/grumet(2).jpeg'
+import pGrumet from '@/app/assets/pulGrumet.jpg'
+
+import cartier from '@/app/assets/cartier.jpeg'
+import cartier2 from '@/app/assets/cartier(2).jpeg'
+import pCartiet from '@/app/assets/pulCartier.jpg'
+
+import tresPorUm from '@/app/assets/3por1.jpeg'
+import tresPorUm2 from '@/app/assets/3por1(2).jpg'
 import p3por1 from '@/app/assets/pulseira3x1.png'
+
+import piastrine from '@/app/assets/piastrine.jpg'
+import piastrine2 from '@/app/assets/piastrine(2).png'
+import pPiastrine from '@/app/assets/pulPiastrine.jpeg'
+
+
+
 import argolaNj from '@/app/assets/argolacCravejadaNj.jpeg'
 import argola from '@/app/assets/argola.jpeg'
 import argolaCruz from '@/app/assets/argolaCruz.jpeg'
@@ -28,7 +42,7 @@ export const prod = [
     id: '1',
     name: "Corrente veneziaana (2mm) -60cm",
     price: 179.90,
-    image: veneziana,
+    images: [veneziana, veneziana2],
     sale: 10,
     category: "Correntes"
   },
@@ -36,7 +50,7 @@ export const prod = [
     id: '2',
     name: "corrente baiana (3mm) -60cm",
     price: 350.90,
-    image: baiana,
+    images: [baiana, baiana2],
     sale: 15,
     category: "Correntes"
   },
@@ -44,7 +58,7 @@ export const prod = [
     id: '3',
     name: "corrente grumet (4mm) -60cm",
     price: 299.90,
-    image: grumet,
+    images: [grumet, grumet2],
     sale: 5,
     category: "Correntes"
   },
@@ -52,7 +66,7 @@ export const prod = [
     id: '4',
     name: "corrente cartier (2mm) -60cm",
     price: 129.90,
-    image: cartier,
+    images: [cartier, cartier2],
     sale: 10,
     category: "Correntes"
   },
@@ -60,7 +74,7 @@ export const prod = [
     id: '5',
     name: "corrente 3 por 1 (3mm) -60cm",
     price: 199.90,
-    image: tresPorUm,
+    images: [tresPorUm, tresPorUm2],
     sale: 5,
     category: "Correntes"
   },
@@ -68,7 +82,7 @@ export const prod = [
     id: '6',
     name: "corrente piastrine (3mm) -60cm",
     price: 169.90,
-    image: piastrine,
+    images: [piastrine, piastrine2],
     sale: 15,
     category: "Correntes"
   },
@@ -76,7 +90,7 @@ export const prod = [
     id: '7',
     name: "pulseira piastrine (3mm) -20cm",
     price: 96.90,
-    image: pPiastrine,
+    images: [pPiastrine, piastrine2],
     sale: 15,
     category: "Pulseiras"
   },
@@ -84,7 +98,7 @@ export const prod = [
     id: '8',
     name: "pulseira cartier (2mm) -20cm",
     price: 76.90,
-    image: pCartiet,
+    images: [pCartiet, cartier2],
     sale: 10,
     category: "Pulseiras"
   },
@@ -92,7 +106,7 @@ export const prod = [
     id: '9',
     name: "pulseira grumet (4mm) -20cm",
     price: 146.90,
-    image: pGrumet,
+    images: [pGrumet, grumet2],
     sale: 5,
     category: "Pulseiras"
   },
@@ -100,7 +114,7 @@ export const prod = [
     id: '10',
     name: "pulseira baiano (3mm) -18cm",
     price: 169.90,
-    image: pBaiano,
+    images: [pBaiano, baiana2],
     sale: 10,
     category: "Pulseiras"
   },
@@ -108,7 +122,7 @@ export const prod = [
     id: '11',
     name: "pulseira veneziana (5mm) -20cm",
     price: 209.90,
-    image: pVeneziana,
+    images: [pVeneziana, veneziana2],
     sale: 10,
     category: "Pulseiras"
   },
@@ -116,7 +130,7 @@ export const prod = [
     id: '12',
     name: "pulseira 3por1 (5mm) -20cm",
     price: 159.90,
-    image: p3por1,
+    images: [p3por1, tresPorUm2],
     sale: 10,
     category: "Pulseiras"
   },
@@ -124,7 +138,7 @@ export const prod = [
     id: '13',
     name: "brinco cravejado NJ",
     price: 149.90,
-    image: argolaNj,
+    images: [argolaNj],
     sale: 10,
     category: "Brincos"
   },
@@ -132,7 +146,7 @@ export const prod = [
     id: '14',
     name: "argola prata 925",
     price: 69.90,
-    image: argola,
+    images: [argola],
     sale: 10,
     category: "Brincos"
   },
@@ -140,7 +154,7 @@ export const prod = [
     id: '15',
     name: "brinco cifrao",
     price: 89.90,
-    image: cifrao,
+    images: [cifrao],
     sale: 10,
     category: "Brincos"
   },
@@ -148,7 +162,7 @@ export const prod = [
     id: '16',
     name: "argola cruz 925",
     price: 139.90,
-    image: argolaCruz,
+    images: [argolaCruz],
     sale: 10,
     category: "Brincos"
   },
@@ -156,7 +170,7 @@ export const prod = [
     id: '17',
     name: "Brinco quadrado",
     price: 99.90,
-    image: quadrado,
+    images: [quadrado],
     sale: 10,
     category: "Brincos"
   },
@@ -164,7 +178,7 @@ export const prod = [
     id: '18',
     name: "brinco coroa",
     price: 69.90,
-    image: coroa,
+    images: [coroa],
     sale: 10,
     category: "Brincos"
   },

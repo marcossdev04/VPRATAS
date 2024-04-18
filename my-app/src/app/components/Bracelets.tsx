@@ -46,7 +46,7 @@ export function Bracelets() {
                                         <div className='border h-80 flex flex-col '>
                                             <div className='flex h-3/5'>
                                                 <Image
-                                                    src={products.image}
+                                                    src={products.images[0]}
                                                     alt='imagem teste'
                                                     className="w-full" />
                                             </div>
@@ -61,8 +61,8 @@ export function Bracelets() {
                                                 </div>
                                                 <div>
                                                     <div className='mb-1 flex gap-1'>
-                                                        <div className="text-xs">R${priceFixed}</div>
-                                                        <div className="text-[10px] line-through items-end flex">R${atualPriceFixed}</div>
+                                                        <div className="text-xs text-green-400">R${priceFixed}</div>
+                                                        <div className="text-[10px] line-through items-end flex text-gray-300">R${atualPriceFixed}</div>
                                                     </div>
                                                     <div className='text-[10px]'>5x de {fixedInstallment} sem juros</div>
                                                 </div>

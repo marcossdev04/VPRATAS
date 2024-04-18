@@ -58,7 +58,7 @@ export default function Product({ params }: any) {
                     justifyContent: "center",
                     borderRadius: '10px'
                 }}>
-                    <Image src={images[i]} alt={`Image ${i + 1}`} className='rounded-xl' />
+                    <Image src={product.images[i]} alt={`Image ${i + 1}`} className='rounded-xl' />
                 </div>
             );
         },
@@ -93,7 +93,7 @@ export default function Product({ params }: any) {
                     <div className=' w-5/7 ml-40'>
                         <div className="slider-container">
                             <Slider {...settings}>
-                                {images.map((image, index) => (
+                                {product.images.map((image, index) => (
                                     <div key={index} className='m-auto'>
                                         <Image src={image} alt={`Image ${index + 1}`} />
                                     </div>
