@@ -48,7 +48,7 @@ export function Chains() {
                                 const atualPriceFixed = atualPrice.toFixed(2)
                                 return (
                                     <Link key={products.id} href={`/product/${products.id}`}>
-                                        <div className='border h-80 flex flex-col '>
+                                        <div className='border h-96 flex flex-col '>
                                             <div className='flex h-3/5'>
                                                 <Image
                                                     src={products.images[0]}
@@ -60,13 +60,13 @@ export function Chains() {
                                                     <span className='text-gray-900 text-[10px] py-1'>-{products.sale}%</span>
                                                 </div>
                                                 <div className='mb-1'>
-                                                    <div className='text-sm'>
+                                                    <div className='text-base'>
                                                         {products.name}
                                                     </div>
                                                 </div>
                                                 <div>
                                                     <div className='mb-1 flex gap-1'>
-                                                        <div className="text-sm text-green-400">R${priceFixed}</div>
+                                                        <div className="text-base text-green-400">R${priceFixed}</div>
                                                         <div className="text-[10px] line-through items-end flex text-gray-300">R${atualPriceFixed}</div>
                                                     </div>
                                                     <div className='text-[10px]'>5x de {fixedInstallment} sem juros</div>

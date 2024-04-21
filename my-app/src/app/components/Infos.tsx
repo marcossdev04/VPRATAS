@@ -12,7 +12,7 @@ export function Infos() {
                         <BiSolidPackage className="text-[30px] mobile:text-[20px]" />
                     </div>
                     <div className="flex justify-center flex-col">
-                        <span className="mobile:text-[12px] text-center">Frete Grátis</span>
+                        <span className="mobile:text-[12px] text-xl text-center">Frete Grátis</span>
                         <span className="text-center text-[9px] mobile:text-[8px]">Em compras acima de R$200</span>
                     </div>
                 </div>
@@ -21,7 +21,7 @@ export function Infos() {
                         <GiJewelCrown className="text-[30px] mobile:text-[20px]" />
                     </div>
                     <div className="flex justify-center flex-col">
-                        <span className="mobile:text-[12px] text-center">Garantia Eterna</span>
+                        <span className="mobile:text-[12px] text-xl text-center">Garantia Eterna</span>
                         <span className="text-center text-[9px] mobile:text-[8px]">Prata 925 legítima</span>
                     </div>
                 </div>
@@ -30,7 +30,7 @@ export function Infos() {
                         <FaPix className="text-[30px] mobile:text-[20px]" />
                     </div>
                     <div className="flex justify-center flex-col">
-                        <span className="mobile:text-[12px] text-center">10% Off no Pix</span>
+                        <span className="mobile:text-[12px] text-xl text-center">10% Off no Pix</span>
                         <span className="text-center text-[9px] mobile:text-[8px]">Desconto para pagementos à vista</span>
                     </div>
                 </div>
@@ -39,7 +39,7 @@ export function Infos() {
                         <IoGiftSharp className="text-[30px] mobile:text-[20px]" />
                     </div>
                     <div className="flex justify-center flex-col">
-                        <span className="mobile:text-[12px] text-center">Brinde exclusivo</span>
+                        <span className="mobile:text-[12px] text-xl text-center">Brinde exclusivo</span>
                         <span className="text-center text-[9px] mobile:text-[8px]">Limpa pratas monzi para compras a partir de 150</span>
                     </div>
                 </div>

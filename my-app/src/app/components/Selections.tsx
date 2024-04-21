@@ -13,19 +13,19 @@ export function Selections() {
                 <div className="w-[1300px] flex ">
                     <div className='flex flex-col items-center w-1/4'>
                         <Image src={kits} width={150} alt='Kits' />
-                        <span>Kits</span>
+                        <span className='text-xl'>Kits</span>
                     </div>
                     <div className='flex flex-col items-center w-1/4'>
                         <Image src={pulseiras} width={150} alt='Pulseiras' />
-                        <span>Pulseiras</span>
+                        <span className='text-xl'>Pulseiras</span>
                     </div>
                     <div className='flex flex-col items-center w-1/4'>
                         <Image src={correntes} width={150} alt='Correntes' />
-                        <span>Correntes</span>
+                        <span className='text-xl'>Correntes</span>
                     </div>
                     <div className='flex flex-col items-center w-1/4'>
                         <Image src={brincos} width={150} alt='Brincos' />
-                        <span>Brincos</span>
+                        <span className='text-xl'>Brincos</span>
                     </div>
                 </div>
             </div>

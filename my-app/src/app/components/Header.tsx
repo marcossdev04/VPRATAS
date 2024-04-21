@@ -1,78 +1,60 @@
 'use client'
 import Image from "next/image";
 import logoImage from "@/app/assets/V (3).svg"
-import TextField from "@mui/material/TextField";
-import { FaSearch } from "react-icons/fa"; // Adicionado o ícone de pesquisa
+import { FaSearch } from "react-icons/fa";
 import { FaRegUser } from "react-icons/fa";
-import { IoMdCart } from "react-icons/io";
-import { styled, alpha } from '@mui/material/styles';
-import InputBase from '@mui/material/InputBase';
-import { AppBar, Box, Toolbar } from "@mui/material";
 import Link from "next/link";
+import { Cart } from "./Cart";
+import { useState } from "react";
+import { prod } from "@/lib/utils";
+
 
 
 export function Header() {
-    const Search = styled('div')(({ theme }) => ({
-        position: 'relative',
-        borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.common.white, 0.15),
-        '&:hover': {
-            backgroundColor: alpha(theme.palette.common.white, 0.25),
-        },
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(1),
-            width: 'auto',
-        },
-    }));
+    const [searchQuery, setSearchQuery] = useState('');
 
-    const SearchIconWrapper = styled('div')(({ theme }) => ({
-        padding: theme.spacing(0, 2),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    }));
 
-    const StyledInputBase = styled(InputBase)(({ theme }) => ({
-        color: 'inherit',
-        width: '100%',
-        '& .MuiInputBase-input': {
-            padding: theme.spacing(1, 1, 1, 0),
-            paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-            transition: theme.transitions.create('width'),
-            [theme.breakpoints.up('sm')]: {
-                width: '10ch',
-                '&:focus': {
-                    width: '20ch',
-                },
-            },
-        },
-    }));
+    const filterData = prod.filter(item => {
+        return item.name.toLowerCase().includes(searchQuery.toLowerCase())
+    })
+    const handleSearchChange = (event: any) => {
+        setSearchQuery(event.target.value);
+    };
     return (
         <div className=" flex bg-black w-full border-b justify-between px-10 ">
-            <div className="flex justify-center items-center mobile:hidden w-1/3">
-                <Box sx={{ flexGrow: 1 }}>
-                    <AppBar position="static">
-                        <Toolbar className="bg-black">
-                            <Search>
-                                <SearchIconWrapper>
-                                    <FaSearch />
-                                </SearchIconWrapper>
-                                <StyledInputBase
-                                    placeholder="Pesquisar"
-                                    inputProps={{ 'aria-label': 'search' }}
-                                />
-                            </Search>
-                        </Toolbar>
-                    </AppBar>
-                </Box>
+            <div className="flex justify-start items-center mobile:hidden w-1/3">
+                <div className="relative flex items-center gap-2 ">
+                    <FaSearch size={20} />
+                    <input
+                        className="text-black ease-in-out  duration-300 text-left focus:bg-gray-200 focus:w-[32ch] w-[15ch] rounded-lg focus:  h-8 text-sm p-2"
+                        value={searchQuery}
+                        onChange={handleSearchChange}
+                        placeholder="O quê procura?"
+                    />
+                </div>
             </div>
             <div className="desktop:hidden tablet:hidden laptop:hidden">
                 /
+            </div>
+            <div>
+                <div className={`absolute top-16 left-16 z-10 overflow-auto h-[51%] ${searchQuery == '' ? 'hidden' : ''}`}>
+                    {filterData.map((data) => {
+                        return (
+                            <Link key={data.id} onClick={() => setSearchQuery('')} href={`/product/${data.id}`}>
+                                <div className="p-2 border flex flex-col bg-black ">
+                                    <div className="flex w-80 gap-1">
+                                        <Image src={data.images[0]} alt="pratas925" width={100} />
+                                        <div className="flex flex-col gap-1 justify-center m-auto">
+                                            <div className="text-center text-[#bbbbbc]">{data.category}</div>
+                                            <div className="text-center">{data.name}</div>
+                                            <div className="text-center text-green-400">R${data.price.toFixed(2)}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
+                        )
+                    })}
+                </div>
             </div>
             <div className="flex pt-2 justify-center mobile:w-1/3 w-1/3">
                 <Link href={'/'}>
@@ -84,12 +66,9 @@ export function Header() {
                     <div className="mobile:hidden">
                         <li><FaRegUser size={22} /></li>
                     </div>
-                    <div className="flex gap-2 items-center">
-                        <li><IoMdCart size={27} /></li>
-                        <span className="font-medium">R$00.00</span>
-                    </div>
+                    <Cart />
                 </ul>
             </div>
-        </div>
+        </div >
     )
 }

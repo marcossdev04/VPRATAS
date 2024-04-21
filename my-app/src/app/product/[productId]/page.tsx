@@ -16,8 +16,7 @@ import {
     SelectLabel,
     SelectTrigger,
     SelectValue,
-} from "@/components/ui/select"
-import { Header } from '../../components/Header'
+} from "@/app/components/ui/select"
 import { Footer } from '../../components/Footer'
 import { AccordionDemo } from '../../components/Accordion'
 import { prod } from '@/lib/utils'
@@ -87,7 +86,6 @@ export default function Product({ params }: any) {
     };
     return (
         <div>
-            <Header />
             <div className='w-full flex pt-16 px-32 h-[86vh] '>
                 <div className='w-1/2'>
                     <div className=' w-5/7 ml-40'>
