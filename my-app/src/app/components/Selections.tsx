@@ -3,6 +3,7 @@ import pulseiras from '@/app/assets/catPulseiras.jpeg'
 import correntes from '@/app/assets/catCorrentes.jpeg'
 import brincos from '@/app/assets/catBrincos.jpeg'
 import Image from 'next/image'
+import Link from 'next/link'
 export function Selections() {
     return (
         <div>
@@ -13,22 +14,28 @@ export function Selections() {
                 <div className="w-[1300px] flex ">
                     <div className='flex flex-col items-center w-1/4'>
                         <Image src={kits} width={150} alt='Kits' />
-                        <span className='text-xl'>Kits</span>
+                        <span className='text-xl'>Pingentes</span>
                     </div>
                     <div className='flex flex-col items-center w-1/4'>
-                        <Image src={pulseiras} width={150} alt='Pulseiras' />
-                        <span className='text-xl'>Pulseiras</span>
+                        <Link href={'/pulseiras'}>
+                            <Image src={pulseiras} width={150} alt='Pulseiras' />
+                            <span className='text-xl'>Pulseiras</span>
+                        </Link>
                     </div>
                     <div className='flex flex-col items-center w-1/4'>
-                        <Image src={correntes} width={150} alt='Correntes' />
-                        <span className='text-xl'>Correntes</span>
+                        <Link href={'/correntes'}>
+                            <Image src={correntes} width={150} alt='Correntes' />
+                            <span className='text-xl'>Correntes</span>
+                        </Link>
                     </div>
                     <div className='flex flex-col items-center w-1/4'>
-                        <Image src={brincos} width={150} alt='Brincos' />
-                        <span className='text-xl'>Brincos</span>
+                        <Link href={'/brincos'}>
+                            <Image src={brincos} width={150} alt='Brincos' />
+                            <span className='text-xl'>Brincos</span>
+                        </Link>
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }

@@ -13,7 +13,6 @@ import { prod } from "@/lib/utils";
 export function Header() {
     const [searchQuery, setSearchQuery] = useState('');
 
-
     const filterData = prod.filter(item => {
         return item.name.toLowerCase().includes(searchQuery.toLowerCase())
     })
@@ -24,7 +23,9 @@ export function Header() {
         <div className=" flex bg-black w-full border-b justify-between px-10 ">
             <div className="flex justify-start items-center mobile:hidden w-1/3">
                 <div className="relative flex items-center gap-2 ">
-                    <FaSearch size={20} />
+                    <Link href={`/search/${searchQuery}`}>
+                        <FaSearch size={20} onClick={() => setSearchQuery('')} />
+                    </Link>
                     <input
                         className="text-black ease-in-out  duration-300 text-left focus:bg-gray-200 focus:w-[32ch] w-[15ch] rounded-lg focus:  h-8 text-sm p-2"
                         value={searchQuery}
