@@ -25,8 +25,6 @@ import piastrine from '@/app/assets/piastrine.jpg'
 import piastrine2 from '@/app/assets/piastrine(2).png'
 import pPiastrine from '@/app/assets/pulPiastrine.jpeg'
 
-
-
 import argolaNj from '@/app/assets/argolacCravejadaNj.jpeg'
 import argola from '@/app/assets/argola.jpeg'
 import argolaCruz from '@/app/assets/argolaCruz.jpeg'
@@ -181,7 +179,5 @@ export const prod = [
     images: [coroa],
     sale: 10,
     category: "Brincos"
-  },
-
-
+  }
 ]
