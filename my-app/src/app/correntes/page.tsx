@@ -9,11 +9,18 @@ import {
     SelectValue,
 } from "@/app/components/ui/select"
 import { prod } from "@/lib/utils"
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import Link from "next/link"
+interface Props {
+    data: {
+        title: string,
+        image: StaticImageData,
+        price: string
+    }
+}
 export default function chains() {
     const itensFiltred = prod.filter(item => item.category == 'Correntes')
-    const mapLength = itensFiltred.length
+
     return (
         <div>
             <div className="py-14 border-b">

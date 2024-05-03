@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from "react";
 import { prod } from "@/lib/utils";
+import { useCartStore } from "../../store/CartStore";
 
 
 
@@ -19,7 +20,6 @@ export function Chains() {
         slidesToShow: 5,
         speed: 500,
     };
-
     return (
         <div>
             <div className='w-[75%] m-auto my-5 mobile:w-[100%] flex gap-5'>

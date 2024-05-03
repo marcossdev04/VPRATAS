@@ -7,6 +7,8 @@ import Link from "next/link";
 import { Cart } from "./Cart";
 import { useState } from "react";
 import { prod } from "@/lib/utils";
+import { CartContent } from "./CartContent";
+import { useCartStore } from "@/store/CartStore";
 
 
 
@@ -19,8 +21,10 @@ export function Header() {
     const handleSearchChange = (event: any) => {
         setSearchQuery(event.target.value);
     };
+    const toggleCart = useCartStore((state) => state.toggleCart);
     return (
-        <div className=" flex bg-black w-full border-b justify-between px-10 ">
+        <div className=" flex bg-black w-full border-b justify-between px-10 fixed z-10">
+            <CartContent />
             <div className="flex justify-start items-center mobile:hidden w-1/3">
                 <div className="relative flex items-center gap-2 ">
                     <Link href={`/search/${searchQuery}`}>
@@ -38,7 +42,7 @@ export function Header() {
                 /
             </div>
             <div>
-                <div className={`absolute top-16 left-16 z-10 overflow-auto h-[51%] ${searchQuery == '' ? 'hidden' : ''}`}>
+                <div className={`fixed top-16 left-16 z-10 overflow-auto h-[51%] ${searchQuery == '' ? 'hidden' : ''}`}>
                     {filterData.map((data) => {
                         return (
                             <Link key={data.id} onClick={() => setSearchQuery('')} href={`/product/${data.id}`}>
@@ -67,7 +71,9 @@ export function Header() {
                     <div className="mobile:hidden">
                         <li><FaRegUser size={22} /></li>
                     </div>
-                    <Cart />
+                    <button onClick={() => toggleCart()}>
+                        <Cart />
+                    </button>
                 </ul>
             </div>
         </div >

@@ -2,11 +2,11 @@
 import ImageTest01 from '@/app/assets/jpg_20220705_173601_00001-0ba7ce7cb41c91e14916570534004835-1024-1024.jpg'
 import Imagetest02 from '@/app/assets/imagetest2.jpg'
 import ImageTest03 from '@/app/assets/imagetest3.jpg'
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import { InputMask } from 'primereact/inputmask';
 import {
     Select,
@@ -17,32 +17,53 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/app/components/ui/select"
-import { Footer } from '../../components/Footer'
 import { AccordionDemo } from '../../components/Accordion'
 import { prod } from '@/lib/utils'
+import { useCartStore } from '@/store/CartStore'
+import { ToastContainer, toast } from 'react-toastify';
 
+interface Props {
+    params: any
+}
 
-
-export default function Product({ params }: any) {
-    const images = [ImageTest01, Imagetest02, ImageTest03]
-    const [contable, setContable] = useState(1)
+export default function Product({ params }: Props) {
     const [currentSlide, setCurrentSlide] = useState(0)
+    const addToCart = useCartStore((state) => state.addToCart)
+    const listItem = useCartStore((state) => state.cart)
+    const notifySucces = () => toast.success('Produto adicionado com sucesso!', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark"
+    });
+    const notifyError = () => toast.error('Este produto já foi adicionado!', {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark"
+    });
+    const handleAddItem = (item: any) => {
+        const isItemInCart = listItem.some(cartItem => cartItem.id === item.id);
+        if (isItemInCart) {
+            notifyError()
+        } else {
+            addToCart(item);
+            notifySucces();
+        }
+    };
 
     const product = prod.filter((produto) => produto.id === params.productId)[0]
     const percentValue = product?.price * product?.sale / 100
     const pastValue = product?.price! + percentValue
     const portion = product?.price! / 5
-
-
-    const incrementarContable = () => {
-        setContable(contable + 1);
-    };
-
-    const decrementarContable = () => {
-        if (contable > 1) {
-            setContable(contable - 1);
-        }
-    };
 
     const settings = {
         customPaging: function (i: number) {
@@ -127,7 +148,8 @@ export default function Product({ params }: any) {
                             </div>
                             <span className='text-xs'>5x de R${portion.toFixed(2)}</span>
                         </div>
-                        <button className='border w-fit py-3 px-10 text-green-500'>
+                        <button className='border w-fit py-3 px-10 text-green-500' onClick={
+                            () => { handleAddItem(product) }} >
                             Comprar agora
                         </button>
                         <div>
@@ -146,7 +168,6 @@ export default function Product({ params }: any) {
                 <div>Descrição</div>
                 <AccordionDemo />
             </div>
-            <Footer />
         </div>
     )
 }

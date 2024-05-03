@@ -3,6 +3,8 @@ import { Silkscreen } from 'next/font/google'
 import './globals.css'
 import { Header } from './components/Header'
 import { Footer } from './components/Footer'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const silkscreen = Silkscreen({ subsets: ['latin'], weight: ['400'] })
 
@@ -20,7 +22,10 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={silkscreen.className}>
         <Header />
-        {children}
+        <ToastContainer />
+        <div className='pt-20'>
+          {children}
+        </div>
         <Footer />
       </body>
     </html>
