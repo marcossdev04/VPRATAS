@@ -2,7 +2,8 @@
 import Image from "next/image";
 import logoImage from "@/app/assets/V (3).svg"
 import { FaSearch } from "react-icons/fa";
-import { FaRegUser } from "react-icons/fa";
+import closeIcon from '@/app/assets/closeIcon.png'
+import menuIcon from '@/app/assets/menuIcon.png'
 import Link from "next/link";
 import { Cart } from "./Cart";
 import { useState } from "react";
@@ -14,6 +15,7 @@ import { useCartStore } from "@/store/CartStore";
 
 export function Header() {
     const [searchQuery, setSearchQuery] = useState('');
+    const [menuOpen, setMenuOpen] = useState(false)
 
     const filterData = prod.filter(item => {
         return item.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -22,8 +24,12 @@ export function Header() {
         setSearchQuery(event.target.value);
     };
     const toggleCart = useCartStore((state) => state.toggleCart);
+    const listItems = useCartStore((state) => state.cart);
+    const totalPrice = listItems.reduce((acc, item) => {
+        return item.price + acc
+    }, 0)
     return (
-        <div className=" flex bg-black w-full border-b justify-between px-10 fixed z-10">
+        <div className=" flex bg-black text-white w-full border-b justify-between px-10 mobile:px-0 fixed z-10">
             <CartContent />
             <div className="flex justify-start items-center mobile:hidden w-1/3">
                 <div className="relative flex items-center gap-2 ">
@@ -38,10 +44,20 @@ export function Header() {
                     />
                 </div>
             </div>
-            <div className="desktop:hidden tablet:hidden laptop:hidden">
-                /
+            <div className="desktop:hidden tablet:hidden laptop:hidden w-1/3">
+                <div className="absolute top-[25px] left-0 ml-[5%] flex-col gap-[11px] z-30 desktop:hidden laptop:hidden tablet:hidden">
+                    <div className="cursor-pointer justify-start flex">
+                        <Image src={menuOpen ? closeIcon : menuIcon} alt="Menu-button" width={27} onClick={() => setMenuOpen(!menuOpen)} />
+                    </div>
+                    <div className={`${menuOpen ? '' : 'hidden'} flex flex-col items-start gap-10 rounded-[10px] bg-gradient-to-b bg-[#151311] from-[#151311] to-black p-6 shadow-md`}>
+                        <Link href={'/destaques'} className="text-xl">Destaques</Link>
+                        <Link href={'/correntes'} className="text-xl">Correntes</Link>
+                        <Link href={'/pulseiras'} className="text-xl">Pulseiras</Link>
+                        <Link href={'/brincos'} className="text-xl">Brincos</Link>
+                    </div>
+                </div>
             </div>
-            <div>
+            <div className="mobile:hidden">
                 <div className={`fixed top-16 left-16 z-10 overflow-auto h-[51%] ${searchQuery == '' ? 'hidden' : ''}`}>
                     {filterData.map((data) => {
                         return (
@@ -61,18 +77,15 @@ export function Header() {
                     })}
                 </div>
             </div>
-            <div className="flex pt-2 justify-center mobile:w-1/3 w-1/3">
+            <div className="flex pt-2 justify-center w-1/3">
                 <Link href={'/'}>
                     <Image src={logoImage} alt="logo pratas 925" width={70} />
                 </Link>
             </div>
             <div className="items-center mobile:mr-3 flex justify-end w-1/3">
-                <ul className="flex gap-7 items-center">
-                    <div className="mobile:hidden">
-                        <li><FaRegUser size={22} /></li>
-                    </div>
+                <ul className="flex gap-7 mobile: mr-1 items-center">
                     <button onClick={() => toggleCart()}>
-                        <Cart />
+                        <Cart totalPrice={totalPrice} />
                     </button>
                 </ul>
             </div>

@@ -22,27 +22,27 @@ export default function chains() {
     const itensFiltred = prod.filter(item => item.category == 'Correntes')
 
     return (
-        <div>
-            <div className="py-14 border-b">
+        <div className="text-white">
+            <div className="py-14 mobile:py-8 border-b ">
                 <div className="flex justify-center text-3xl">Correntes</div>
             </div>
             <div className="w-full flex mt-7">
-                <div className="w-[75%]"></div>
+                <div className="w-[75%] mobile:w-[55%]"></div>
                 <div className="w-[10%]">
                     <Select>
-                        <SelectTrigger className="w-[180px] bg-black">
+                        <SelectTrigger className="w-[180px] bg-black ">
                             <SelectValue placeholder="Ordenar por" />
                         </SelectTrigger>
                         <SelectContent>
                             <SelectGroup>
-                                <SelectItem className="bg-black" value="menus">Menor preço</SelectItem>
-                                <SelectItem className="bg-black" value="plus">Maior preço</SelectItem>
+                                <SelectItem className="bg-black text-white" value="menus">Menor preço</SelectItem>
+                                <SelectItem className="bg-black text-white" value="plus">Maior preço</SelectItem>
                             </SelectGroup>
                         </SelectContent>
                     </Select>
                 </div>
             </div>
-            <div className='grid grid-cols-4 px-72 gap-10 mt-8'>
+            <div className='grid grid-cols-4 px-72 mobile:px-12 laptop:px-20 mobile:grid-cols-1 gap-10 mt-8'>
                 {
                     itensFiltred.map((product) => {
                         const priceFixed = product.price.toFixed(2)

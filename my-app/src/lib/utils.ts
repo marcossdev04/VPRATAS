@@ -38,11 +38,12 @@ export function cn(...inputs: ClassValue[]) {
 export const prod = [
   {
     id: '1',
-    name: "Corrente veneziaana (2mm) -60cm",
+    name: "Corrente veneziana (2mm) -60cm",
     price: 179.90,
     images: [veneziana, veneziana2],
     sale: 10,
-    category: "Correntes"
+    category: "Correntes",
+    highlight: false
   },
   {
     id: '2',
@@ -50,7 +51,8 @@ export const prod = [
     price: 350.90,
     images: [baiana, baiana2],
     sale: 15,
-    category: "Correntes"
+    category: "Correntes",
+    highlight: false
   },
   {
     id: '3',
@@ -58,7 +60,8 @@ export const prod = [
     price: 299.90,
     images: [grumet, grumet2],
     sale: 5,
-    category: "Correntes"
+    category: "Correntes",
+    highlight: false
   },
   {
     id: '4',
@@ -66,7 +69,8 @@ export const prod = [
     price: 129.90,
     images: [cartier, cartier2],
     sale: 10,
-    category: "Correntes"
+    category: "Correntes",
+    highlight: true
   },
   {
     id: '5',
@@ -74,7 +78,8 @@ export const prod = [
     price: 199.90,
     images: [tresPorUm, tresPorUm2],
     sale: 5,
-    category: "Correntes"
+    category: "Correntes",
+    highlight: true
   },
   {
     id: '6',
@@ -82,7 +87,8 @@ export const prod = [
     price: 169.90,
     images: [piastrine, piastrine2],
     sale: 15,
-    category: "Correntes"
+    category: "Correntes",
+    highlight: true
   },
   {
     id: '7',
@@ -90,7 +96,8 @@ export const prod = [
     price: 96.90,
     images: [pPiastrine, piastrine2],
     sale: 15,
-    category: "Pulseiras"
+    category: "Pulseiras",
+    highlight: false
   },
   {
     id: '8',
@@ -98,7 +105,8 @@ export const prod = [
     price: 76.90,
     images: [pCartiet, cartier2],
     sale: 10,
-    category: "Pulseiras"
+    category: "Pulseiras",
+    highlight: false
   },
   {
     id: '9',
@@ -106,7 +114,8 @@ export const prod = [
     price: 146.90,
     images: [pGrumet, grumet2],
     sale: 5,
-    category: "Pulseiras"
+    category: "Pulseiras",
+    highlight: false
   },
   {
     id: '10',
@@ -114,7 +123,8 @@ export const prod = [
     price: 169.90,
     images: [pBaiano, baiana2],
     sale: 10,
-    category: "Pulseiras"
+    category: "Pulseiras",
+    highlight: false
   },
   {
     id: '11',
@@ -122,7 +132,8 @@ export const prod = [
     price: 209.90,
     images: [pVeneziana, veneziana2],
     sale: 10,
-    category: "Pulseiras"
+    category: "Pulseiras",
+    highlight: true
   },
   {
     id: '12',
@@ -130,7 +141,8 @@ export const prod = [
     price: 159.90,
     images: [p3por1, tresPorUm2],
     sale: 10,
-    category: "Pulseiras"
+    category: "Pulseiras",
+    highlight: false
   },
   {
     id: '13',
@@ -138,7 +150,8 @@ export const prod = [
     price: 149.90,
     images: [argolaNj],
     sale: 10,
-    category: "Brincos"
+    category: "Brincos",
+    highlight: false
   },
   {
     id: '14',
@@ -146,7 +159,8 @@ export const prod = [
     price: 69.90,
     images: [argola],
     sale: 10,
-    category: "Brincos"
+    category: "Brincos",
+    highlight: false
   },
   {
     id: '15',
@@ -154,7 +168,8 @@ export const prod = [
     price: 89.90,
     images: [cifrao],
     sale: 10,
-    category: "Brincos"
+    category: "Brincos",
+    highlight: true
   },
   {
     id: '16',
@@ -162,7 +177,8 @@ export const prod = [
     price: 139.90,
     images: [argolaCruz],
     sale: 10,
-    category: "Brincos"
+    category: "Brincos",
+    highlight: true
   },
   {
     id: '17',
@@ -170,7 +186,8 @@ export const prod = [
     price: 99.90,
     images: [quadrado],
     sale: 10,
-    category: "Brincos"
+    category: "Brincos",
+    highlight: false
   },
   {
     id: '18',
@@ -178,6 +195,7 @@ export const prod = [
     price: 69.90,
     images: [coroa],
     sale: 10,
-    category: "Brincos"
+    category: "Brincos",
+    highlight: false
   }
 ]

@@ -2,20 +2,21 @@ import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useCartStore } from "@/store/CartStore";
 import { IoMdCart } from "react-icons/io";
 
-
-export function Cart() {
+interface Props {
+    totalPrice: number
+}
+export function Cart({ totalPrice }: Props) {
     const listItems = useCartStore((state) => state.cart);
-    const { value } = useLocalStorage('cart-items', [])
     return (
         < div className="flex gap-2 items-center" >
             <div className="flex">
                 <li><IoMdCart size={27} /></li>
-                {value.length &&
-                    <div className={`absolute top-3 right-[112px] bg-green-600 rounded-xl m-auto ${value.length < 9 ? 'px-1' : 'px-0'}`}>
-                        <span className="text-sm m-auto">{listItems.length}</span>
+                {listItems.length &&
+                    <div className={`absolute top-3 right-[123px] laptop:right-[115px] mobile:right-4 bg-green-600 rounded-xl m-auto ${listItems.length < 9 ? 'px-[5px]' : 'px-0'}`}>
+                        <span className={` ${listItems.length < 9 ? 'text base' : 'text-sm'} text-base m-auto`}>{listItems.length}</span>
                     </div>}
             </div>
-            <span className="font-medium">R$00.00</span>
+            <span className="font-medium mobile:hidden w-20">R${totalPrice.toFixed(2)}</span>
         </div >
     )
 }

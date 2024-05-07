@@ -30,6 +30,7 @@ export default function Product({ params }: Props) {
     const [currentSlide, setCurrentSlide] = useState(0)
     const addToCart = useCartStore((state) => state.addToCart)
     const listItem = useCartStore((state) => state.cart)
+
     const notifySucces = () => toast.success('Produto adicionado com sucesso!', {
         position: "bottom-right",
         autoClose: 5000,
@@ -93,12 +94,12 @@ export default function Product({ params }: Props) {
         appendDots: (dots: number) => (
             <div
                 style={{
-                    paddingLeft: "80px",
-                    paddingRight: "80px",
+                    paddingLeft: "70px",
+                    paddingRight: "70px",
                     display: "flex",
                 }}
             >
-                <ul className='mr-[70px]' style={{ padding: "0px", display: "flex", width: '100%', height: "40px", justifyContent: "space-between" }}>
+                <ul className='mr-[70px] mobile:gap-20' style={{ padding: "0px", display: "flex", width: '100%', height: "40px", justifyContent: "space-around" }}>
                     {dots}
                 </ul>
             </div>
@@ -106,36 +107,25 @@ export default function Product({ params }: Props) {
 
     };
     return (
-        <div>
-            <div className='w-full flex pt-16 px-32 h-[86vh] '>
-                <div className='w-1/2'>
-                    <div className=' w-5/7 ml-40'>
+        <div className='text-white'>
+            <div className='w-full flex pt-16 px-32 mobile:px-10 h-[100vh] mobile:flex-col '>
+                <div className='w-1/2 mobile:w-full'>
+                    <div className=' w-[60%] mobile:w-full mobile:ml-0 ml-64'>
                         <div className="slider-container">
                             <Slider {...settings}>
                                 {product.images.map((image, index) => (
                                     <div key={index} className='m-auto'>
-                                        <Image src={image} alt={`Image ${index + 1}`} />
+                                        <Image src={image} alt={`Image ${index + 1}`} className='max-h-[600px]' />
                                     </div>
                                 ))}
                             </Slider>
                         </div>
                     </div>
                 </div>
-                <div className='w-1/2'>
-                    <div className='flex flex-col ml-20 gap-3'>
+                <div className='w-1/2 mobile:w-full mobile:mt-32'>
+                    <div className='flex flex-col ml-20 mobile:ml-0 gap-3'>
                         <div className='flex flex-col'>
                             <span>{product?.name}</span>
-                        </div>
-                        <div>
-                            <Select>
-                                <SelectTrigger className="w-[180px]">
-                                    <SelectValue placeholder="Tamanho" />
-                                </SelectTrigger>
-                                <SelectContent className='bg-black'>
-                                    <SelectItem value="60">60 cm</SelectItem>
-                                    <SelectItem value="70">70 cm</SelectItem>
-                                </SelectContent>
-                            </Select>
                         </div>
                         <div className='flex flex-col'>
                             <div className='flex gap-2'>
@@ -152,7 +142,7 @@ export default function Product({ params }: Props) {
                             () => { handleAddItem(product) }} >
                             Comprar agora
                         </button>
-                        <div>
+                        <div className=''>
                             <div>
                                 <span className='text-sm'>Formas de Envio</span>
                             </div>
@@ -160,13 +150,15 @@ export default function Product({ params }: Props) {
                                 <InputMask className='text-black w-[27%] rounded-md px-2' mask="99999-999" placeholder="CEP" />
                                 <button className='border px-3 py-1 text-green-500'>OK</button>
                             </div>
+                            <div className='mt-10 m-auto mobile:hidden'>
+                                <div>Descrição</div>
+                                <div className='block'>
+                                    <AccordionDemo />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className='px-60 m-auto'>
-                <div>Descrição</div>
-                <AccordionDemo />
             </div>
         </div>
     )
