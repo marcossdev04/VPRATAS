@@ -38,7 +38,7 @@ export const CartContent = () => {
                             notifyDelete();
                         };
                         return (
-                            <section className="flex items-center border-b border-white mb-5 pb-5 relative">
+                            <section key={id} className="flex items-center border-b border-white mb-5 pb-5 relative">
                                 <Image src={images[0]} alt="imagem do produto" className="w-[110px]" />
                                 <div className="pl-[9px] pr-[10px]">
                                     <h3 className="text-[0.85rem] font-medium mb-2 w-[95%]">{name}</h3>

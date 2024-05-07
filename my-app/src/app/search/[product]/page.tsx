@@ -19,7 +19,7 @@ export default function search({ params }: { params: { product: string } }) {
         <div>
             <div className="py-14 border-b">
                 <div className="flex justify-center text-3xl">Pesquisar</div>
-                <div className="flex justify-center text-xs">{mapLength} resultados para "{params.product}"</div>
+                <div className="flex justify-center text-xs">{mapLength} resultados para {params.product}</div>
             </div>
             <div className="w-full flex mt-7">
                 <div className="w-[75%]"></div>
