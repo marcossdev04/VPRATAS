@@ -1,26 +1,14 @@
 'use client'
-import ImageTest01 from '@/app/assets/jpg_20220705_173601_00001-0ba7ce7cb41c91e14916570534004835-1024-1024.jpg'
-import Imagetest02 from '@/app/assets/imagetest2.jpg'
-import ImageTest03 from '@/app/assets/imagetest3.jpg'
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import { InputMask } from 'primereact/inputmask';
-import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectTrigger,
-    SelectValue,
-} from "@/app/components/ui/select"
 import { AccordionDemo } from '../../components/Accordion'
 import { prod } from '@/lib/utils'
 import { useCartStore } from '@/store/CartStore'
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 interface Props {
     params: any

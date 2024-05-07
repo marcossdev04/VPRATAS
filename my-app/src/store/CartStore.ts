@@ -12,7 +12,7 @@ type Item = {
 type CartStore = {
     isOpen: boolean
     cart: Item[]
-    addToCart: (item: Item, contable: number) => void
+    addToCart: (item: Item) => void
     removeFromCart: (id: string) => void
     toggleCart: () => void
 }
@@ -29,7 +29,7 @@ export const useCartStore = create<CartStore>((set) => {
             price: product.price,
         })),
         toggleCart: () => set((state) => ({ isOpen: !state.isOpen })),
-        addToCart: (item, contable: number) => set((state) => ({ cart: [...state.cart, item] })),
+        addToCart: (item) => set((state) => ({ cart: [...state.cart, item] })),
         removeFromCart: (id) =>
             set((state) => ({ cart: state.cart.filter((item) => item.id !== id) }))
     }

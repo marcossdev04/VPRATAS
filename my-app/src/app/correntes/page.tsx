@@ -4,20 +4,12 @@ import {
     SelectContent,
     SelectGroup,
     SelectItem,
-    SelectLabel,
     SelectTrigger,
     SelectValue,
 } from "@/app/components/ui/select"
 import { prod } from "@/lib/utils"
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 import Link from "next/link"
-interface Props {
-    data: {
-        title: string,
-        image: StaticImageData,
-        price: string
-    }
-}
 export default function chains() {
     const itensFiltred = prod.filter(item => item.category == 'Correntes')
 

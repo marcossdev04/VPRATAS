@@ -4,14 +4,12 @@ import {
     SelectContent,
     SelectGroup,
     SelectItem,
-    SelectLabel,
     SelectTrigger,
     SelectValue,
 } from "@/app/components/ui/select"
 import { prod } from "@/lib/utils"
 import Image from "next/image"
 import Link from "next/link"
-import { useState } from "react"
 export default function search({ params }: { params: { product: string } }) {
     const itensFiltred = prod.filter(item => {
         return item.name.toLowerCase().includes(params.product.toLowerCase())

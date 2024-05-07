@@ -13,7 +13,6 @@ import Image from "next/image"
 import Link from "next/link"
 export default function earring() {
     const itensFiltred = prod.filter(item => item.category == 'Brincos')
-    const mapLength = itensFiltred.length
     return (
         <div className="text-white">
             <div className="py-14 mobile:px-8 border-b">

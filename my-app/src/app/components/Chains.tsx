@@ -2,12 +2,10 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ImageTest from '@/app/assets/jpg_20220705_173601_00001-0ba7ce7cb41c91e14916570534004835-1024-1024.jpg'
 import Image from 'next/image';
 import Link from 'next/link';
 import React from "react";
 import { prod } from "@/lib/utils";
-import { useCartStore } from "../../store/CartStore";
 
 
 

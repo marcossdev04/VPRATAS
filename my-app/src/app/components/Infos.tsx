@@ -1,6 +1,6 @@
 import { BiSolidPackage } from "react-icons/bi";
 import { FaPix } from "react-icons/fa6";
-import { GiEarthAmerica, GiJewelCrown } from "react-icons/gi";
+import { GiJewelCrown } from "react-icons/gi";
 import { IoGiftSharp } from "react-icons/io5";
 
 export function Infos() {
